@@ -57,12 +57,12 @@ public class CatalogoDao {
 
 
     public List<Libro> ricercaPerAutore(String autore) {
-        return em.createQuery("SELECT l FROM Libro WHERE l.autore = :autore", Libro.class).setParameter("autore", autore).getResultList();
+        return em.createQuery("SELECT l FROM Libro l WHERE l.autore = :autore", Libro.class).setParameter("autore", autore).getResultList();
     }
 
 
     public List<Catalogo> ricercaPerTitolo(String parteTitolo) {
-        return em.createQuery("SELECT t FROM Catalogo WHERE t.titolo LIKE CONCAT('%',:parteTitolo,'%')", Catalogo.class).setParameter("parteTitolo", parteTitolo).getResultList();
+        return em.createQuery("SELECT t FROM Catalogo t WHERE t.titolo LIKE CONCAT('%',:parteTitolo,'%')", Catalogo.class).setParameter("parteTitolo", parteTitolo).getResultList();
     }
 
 
